@@ -1,0 +1,54 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import integrate
+from pylab import * # for plotting commands
+t=arange(0.,2.,0.01)
+beta=1.
+omega1=sqrt((2*pi)*2-beta*2)
+t1=e**(-beta*t)*cos(omega1*t)
+beta=2.
+omega1=sqrt((2*pi)*2-beta*2)
+t2=e**(-beta*t)*cos(omega1*t)
+beta=3.
+omega1=sqrt((2*pi)*2-beta*2)
+t3=e**(-beta*t)*cos(omega1*t)
+beta=4.
+omega1=sqrt((2*pi)*2-beta*2)
+t4=e**(-beta*t)*cos(omega1*t)
+beta=5.
+omega1=sqrt((2*pi)*2-beta*2)
+t5=e**(-beta*t)*cos(omega1*t)
+beta=6.
+omega1=sqrt((2*pi)*2-beta*2)
+t6=e**(-beta*t)*cos(omega1*t)
+beta=2*pi
+omega1=sqrt((2*pi)*2-beta*2)
+t2p=e**(-beta*t)
+beta=10.
+A=-(beta+sqrt(beta**2-(2*pi)**2))
+B=-(beta-sqrt(beta**2-(2*pi)**2))
+C2=A/(A-B)
+C1=B/(B-A)
+t10=C1*e**(A*t)+C2*e**(B*t)
+beta=20.
+A=-(beta+sqrt(beta**2-(2*pi)**2))
+B=-(beta-sqrt(beta**2-(2*pi)**2))
+C2=A/(A-B)
+C1=B/(B-A)
+t20=C1*e**(A*t)+C2*e**(B*t)
+axes=plt.gca()
+axes.set_xlim([0,2.])
+axes.set_ylim([-1,1])
+plt.plot(t,t1,'b-',linewidth=2,label='Beta=1',alpha=0.6)
+plt.plot(t,t2,'b-',linewidth=2,label='Beta=2',alpha=0.65)
+plt.plot(t,t3,'b-',linewidth=2,label='Beta=1',alpha=0.7)
+plt.plot(t,t4,'b-',linewidth=2,label='Beta=2',alpha=0.75)
+plt.plot(t,t5,'b-',linewidth=2,label='Beta=1',alpha=0.8)
+plt.plot(t,t6,'b-',linewidth=2,label='Beta=2',alpha=0.9)
+plt.plot(t,t2p,'g-',linewidth=4,label='Beta=2pi',alpha=0.9)
+plt.plot(t,t10,'r-',linewidth=3,label='Beta=10',alpha=0.9)
+plt.plot(t,t20,'r-',linewidth=3,label='Beta=20',alpha=0.8)
+plt.xlabel('t')
+plt.ylabel('x')
+plt.legend()
+plt.show()
